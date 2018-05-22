@@ -1,5 +1,6 @@
 import React from 'react';
 import TodoTextInput from './TodoTextInput';
+import { addTodo } from '../store/todos';
 
 const Header = ({ addTodo }: { addTodo: (text: string) => void }) => (
   <header className="header">
@@ -8,7 +9,7 @@ const Header = ({ addTodo }: { addTodo: (text: string) => void }) => (
       newTodo={true}
       onSave={(text: string) => {
         if (text.length !== 0) {
-          addTodo(text)
+          addTodo(text);
         }
       }}
       placeholder="What needs to be done?"
@@ -16,4 +17,4 @@ const Header = ({ addTodo }: { addTodo: (text: string) => void }) => (
   </header>
 );
 
-export default () => <Header addTodo={console.log} />
+export default () => <Header addTodo={addTodo} />;
